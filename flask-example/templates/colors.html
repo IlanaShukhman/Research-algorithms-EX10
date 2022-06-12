@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <body>
+
+    <h2> Please enter the colours of the edges of the path:</h2>
+
+
+    <form method="POST" action="">
+        {% for i in size %}
+        <select name= {{i}} method="GET" action="">
+            {% for colour in colours %}
+            <option value= "{{colour}}" SELECTED>{{ colour }}</option>"
+            {% endfor %}
+        </select>
+        {% endfor %}
+      <button type="submit" class="btn btn-default">Go</button>
+    </form>
+
+
+
+    </body>
+
+{% endblock %}
