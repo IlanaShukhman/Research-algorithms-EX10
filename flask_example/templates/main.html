@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2> What is a "rainbow matching"?</h2>
+    <h3> A rainbow matching in an edge-colored graph is a matching in which all the edges have distinct colors.</h3>
+    <h3> We focus here only on colored paths.</h3>
+    <h2> Instruction for rainbow matching:</h2>
+    <form method="POST" action="">
+        <h3> Please enter the size of path:</h3>
+        {{ form.csrf_token }}
+        <p>
+            {{ form.size() }}
+        </p>
+
+        {% if form.size.errors %}
+            <ul class="errors">
+                {% for error in form.size.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <h3> Please enter the size of the desired rainbow matching:</h3>
+        <p>
+            {{ form.k() }}
+        </p>
+
+        {% if form.k.errors %}
+            <ul class="errors">
+                {% for error in form.k.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <p>
+            <input type="submit" value="Add">
+        </p>
+    </form>
+
+
+{% endblock %}
